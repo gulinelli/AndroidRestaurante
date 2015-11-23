@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.gulin_000.restaurantegulinelli" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".GulinelliRestaurante"
+            android:label="@string/title_activity_gulinelli_restaurante" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MenuOpcoes"
+            android:label="@string/title_activity_menu_opcoes" >
+        </activity>
+        <activity
+            android:name=".NovoPedido"
+            android:label="@string/title_activity_novo_pedido" >
+        </activity>
+        <activity
+            android:name=".Pedido"
+            android:label="@string/title_activity_pedido" >
+        </activity>
+        <activity
+            android:name=".Pagamento"
+            android:label="@string/title_activity_pagamento" >
+        </activity>
+    </application>
+
+</manifest>
