@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg){
             String out = (String)msg.getData().getString("message");
             if (out.equals("correto")){
+                Bundle bundle = new Bundle();
+                bundle.putString("login", loginEditText.getText().toString());
+                intent.putExtras(bundle);
                 startActivity(intent);
             }else{
                 Toast msgErro = Toast.makeText(getApplicationContext(), "Usuário/senha incorretos", Toast.LENGTH_LONG);

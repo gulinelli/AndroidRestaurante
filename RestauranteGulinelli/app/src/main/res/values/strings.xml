@@ -9,4 +9,9 @@
     <string name="title_activity_novo_pedido">NovoPedido</string>
     <string name="title_activity_pedido">Pedido</string>
     <string name="title_activity_pagamento">Pagamento</string>
+    <string-array name="tipoPagamento">
+        <item>Débito</item>
+        <item>Crédito</item>
+        <item>Dinheiro</item>
+    </string-array>
 </resources>

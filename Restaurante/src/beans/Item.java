@@ -44,7 +44,7 @@ public class Item {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return "nome= " + nome +", valor= " + valor + ", imagem= " + imagem + "!";
+		return "nome= " + nome +", valor= " + valor + ", imagem= " + imagem;
 	}
 	
 	/* -------------------------------------*/

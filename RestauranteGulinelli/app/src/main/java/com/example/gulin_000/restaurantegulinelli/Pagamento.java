@@ -1,11 +1,12 @@
 package com.example.gulin_000.restaurantegulinelli;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Pagamento extends ActionBarActivity {
+public class Pagamento extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

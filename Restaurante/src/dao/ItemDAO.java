@@ -17,7 +17,7 @@ public class ItemDAO {
 	public ArrayList<Item> selecionaItems(){
 		String sql = "select nome\n" +
 					 "	, valor\n" +
-					 "	, image\n" +
+					 "	, imagem\n" +
 					 "from item";
 		
 		try(Connection conexao = new ConectionFactory().getConnection()){
@@ -46,5 +46,32 @@ public class ItemDAO {
 	}
 	
 	/*-------------------------------------------------------- */
+	
+	/*--------------- SELECIONA ITEM ------------------ */
+	public int selecionaItem(String nomeItem){
+		String sql = "SELECT iditem FROM item WHERE nome = ?";
+		
+		
+		try(Connection conexao = new ConectionFactory().getConnection()){
+			try(PreparedStatement stmt = conexao.prepareStatement(sql)){
+				stmt.setString(1, nomeItem);
+				try(ResultSet rs = stmt.executeQuery()){
+					int idItem = 0;
+					while(rs.next()){
+						idItem = rs.getInt("iditem");
+					}
+					return idItem;
+					}catch(Exception e){
+						e.printStackTrace();
+					}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	return 0;
+		
+	}
 
 }

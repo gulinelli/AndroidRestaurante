@@ -2,7 +2,7 @@ package servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 import javax.servlet.ServletException;
@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Item;
+
+import beans.ListaItens;
 import dao.ItemDAO;
+
 import net.sf.json.JSONObject;
 
 /**
@@ -43,38 +45,26 @@ public class NovoPedido extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HashMap<String, String> hm = new HashMap<String, String>();
 		
-		ItemDAO itemDAO = new ItemDAO();
+		JSONObject json;
 		
-		ArrayList<Item> listaItems = new ArrayList<>();
-		listaItems = itemDAO.selecionaItems();
+		String opcao = request.getParameter("opcao");
 		
-		Item item = listaItems.get(0);
-		hm.put("item", item.toString());
-		
-		//ArrayList<String> nomes = new ArrayList<>();
-		//ArrayList<String> valores = new ArrayList<>();
-		//ArrayList<String> imagens = new ArrayList<>();
-		
-		/*for(Item i : listaItems){
-			nomes.add(i.getNome());
-			valores.add(String.valueOf(i.getValor()));
-			imagens.add(i.getImagem());
+		if(opcao.equals("NovoPedido")){
+			HashMap<String, ListaItens> itensHm = new HashMap<String, ListaItens>();
 			
-			hm.put("nomes", nomes);
+			ItemDAO itemDAO = new ItemDAO();
+			ListaItens listaItens = new ListaItens();
+			listaItens.setItens(itemDAO.selecionaItems());
+			itensHm.put("itens", listaItens);
 			
-		}*/
-		
-		//hm.put("valores", valores);
-		//hm.put("imagems", imagens);
-		
-		JSONObject json = JSONObject.fromObject(hm);
-		response.setContentType("application/json");
-		PrintWriter out = response.getWriter();
-		out.print(json);
-		out.flush();
-		
+			json = JSONObject.fromObject(itensHm);
+			response.setContentType("application/json");
+			PrintWriter out = response.getWriter();
+			out.println(json);
+			out.flush();
+		} else{
+			
+		}
 	}
-
 }

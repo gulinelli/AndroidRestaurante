@@ -10,14 +10,29 @@ import android.view.View;
 
 public class MenuOpcoes extends Activity {
 
+    String login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_opcoes);
+
+        Intent it = getIntent();
+        if (it != null){
+            Bundle params = it.getExtras();
+            if (params != null){
+                this.login = params.getString("login");
+                System.out.println("MENUOPÇOES AQUI ESTA O LOGIN" + this.login);
+            }
+        }
+
     }
 
     public void novoPedido(View view){
         Intent intent = new Intent(this, NovoPedido.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("login", login);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
